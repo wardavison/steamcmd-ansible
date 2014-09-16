@@ -1,0 +1,10 @@
+
+# Only needed if Debian throws error "Depends: ia32-libs-multiarch but it is not installable"
+#- name: Add i386 architecture
+#  command: dpkg --add-architecture i386
+# Run the equivalent of "apt-get update" as a separate step
+#- name: Update apt cache
+#  apt: update_cache=yes
+
+- name: Install lib32gcc1
+  apt: name=lib32gcc1 state=present

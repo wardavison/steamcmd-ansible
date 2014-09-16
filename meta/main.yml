@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: wardavison
+  description: Ansible role for installing SteamCMD
+  company: n/a
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  - name: Debian
+    versions:
+    - wheezy
+
+dependencies: []

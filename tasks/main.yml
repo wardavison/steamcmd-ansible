@@ -1,0 +1,6 @@
+---
+# tasks file for steamcmd-ansible
+- include: lib32.yml
+- include: curl.yml
+- include: user.yml
+- include: steamcmd.yml

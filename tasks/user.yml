@@ -1,0 +1,2 @@
+- name: Add steam user account
+  user: name={{ steamcmd_user }} createhome={{ steamcmd_user_createhome }} shell=/bin/false

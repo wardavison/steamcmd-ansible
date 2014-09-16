@@ -1,0 +1,10 @@
+---
+# defaults file for steamcmd-ansible
+
+steamcmd_package_filename: steamcmd_linux.tar.gz
+steamcmd_package_url: http://media.steampowered.com/installer/{{ steamcmd_package_filename }}
+steamcmd_user: steam
+
+# This can be set to no if steamcmd_path is not in the steamcmd user's home directory
+steamcmd_user_createhome: yes
+steamcmd_path: ~/steamcmd
