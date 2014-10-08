@@ -7,4 +7,5 @@ steamcmd_user: steam
 
 # This can be set to no if steamcmd_path is not in the steamcmd user's home directory
 steamcmd_user_createhome: yes
+# steamcmd_path must be an absolute path
 steamcmd_path: /home/{{ steamcmd_user }}/steamcmd

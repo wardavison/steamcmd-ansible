@@ -6,7 +6,9 @@ Installs the SteamCMD utility provided by Valve for downloading and installing v
 Requirements
 ------------
 
-This role installs the required lib32gcc1 and libc6-i386 packages. It also installs curl and libcurl3 if not already installed.
+This role installs the required lib32gcc1 and libc6-i386 packages.
+
+It assumes the user account used to run the role has permission to run commands as the (to be created) steam user. It runs the steamcmd.sh command as the steam user. These permissions can be configured using visudo or by creating a file in the /etc/sudoers.d directory. I may look into adding this requirement as part of the role in future.
 
 Role Variables
 --------------

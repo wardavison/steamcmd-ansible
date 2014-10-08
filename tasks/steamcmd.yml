@@ -1,13 +1,29 @@
 # https://developer.valvesoftware.com/wiki/SteamCMD#Linux
 
 - name: Make steamcmd directory
-  file: path={{ steamcmd_path }} owner={{ steamcmd_user }} state=directory
+  file:
+    path={{ steamcmd_path }} 
+    owner={{ steamcmd_user }} 
+    state=directory
 
 - name: Download steamcmd
-  command: chdir={{ steamcmd_path }} su {{ steamcmd_user }} -c "curl -O {{ steamcmd_package_url }}"
+  get_url:
+      dest={{ steamcmd_path }}/{{ steamcmd_package_filename }} 
+      url={{ steamcmd_package_url }} 
+      owner={{ steamcmd_user }}
 
 - name: Extract steamcmd
-  command: chdir={{ steamcmd_path }} su {{ steamcmd_user }} -c "tar -xvzf {{ steamcmd_package_filename }}"
+  unarchive:
+      copy=no 
+      src={{ steamcmd_path }}/{{ steamcmd_package_filename }} 
+      dest={{ steamcmd_path }}/ 
+      creates={{ steamcmd_path }}/steamcmd.sh 
+  sudo: yes
+  sudo_user: "{{ steamcmd_user }}"
 
 - name: Steamcmd firstrun setup
-  command: chdir={{ steamcmd_path }} su {{ steamcmd_user }} -c "steamcmd.sh +quit"
+  command:
+      chdir={{ steamcmd_path }} 
+      ./steamcmd.sh +quit 
+  sudo: yes
+  sudo_user: "{{ steamcmd_user }}"
